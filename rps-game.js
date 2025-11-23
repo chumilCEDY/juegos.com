@@ -1,3 +1,5 @@
+// rps-game.js - Lógica específica del juego Piedra, Papel, Tijera
+
 // Variables para Piedra, Papel, Tijera
 let gameMode = 'twoPlayers'; // 'twoPlayers' o 'vsComputer'
 let player1Choice = null;

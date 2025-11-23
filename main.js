@@ -1,3 +1,5 @@
+// main.js - Funciones comunes de navegación
+
 // Variables globales compartidas
 let currentPage = 'home';
 
@@ -7,14 +9,6 @@ function showHome() {
     document.getElementById('memory-game').style.display = 'none';
     document.getElementById('rps-game').style.display = 'none';
     currentPage = 'home';
-    
-    // Detener temporizador si está activo
-    if (typeof timerInterval !== 'undefined') {
-        clearInterval(timerInterval);
-        if (typeof isMemoryGameActive !== 'undefined') {
-            isMemoryGameActive = false;
-        }
-    }
 }
 
 // Mostrar juego específico
@@ -26,15 +20,11 @@ function showGame(game) {
     if (game === 'memory') {
         document.getElementById('memory-game').style.display = 'block';
         currentPage = 'memory';
-        if (typeof initializeMemoryGame !== 'undefined') {
-            initializeMemoryGame();
-        }
+        initializeMemoryGame();
     } else if (game === 'rps') {
         document.getElementById('rps-game').style.display = 'block';
         currentPage = 'rps';
-        if (typeof initializeRPSGame !== 'undefined') {
-            initializeRPSGame();
-        }
+        initializeRPSGame();
     }
 }
 

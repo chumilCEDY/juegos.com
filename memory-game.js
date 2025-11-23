@@ -1,9 +1,13 @@
-// Variables específicas del juego de memoria
+// memory-game.js - Lógica específica del juego de memoria
+
+// Variables del juego de memoria
 let memoryCards = [];
 let flippedCards = [];
 let moves = 0;
 let matchedPairs = 0;
 let timer = 0;
+let timerInterval;
+let isMemoryGameActive = false;
 
 // Emojis para el juego de memoria
 const memoryEmojis = ['🍎', '🍌', '🍒', '🍇', '🍊', '🍓', '🍉', '🍑'];

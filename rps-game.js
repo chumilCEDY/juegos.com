@@ -176,6 +176,7 @@ function determineRoundResult() {
     }
 }
 
+// Reiniciar la ronda
 function resetRound() {
     player1Choice = null;
     player2Choice = null;

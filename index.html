@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juegos Interactivos</title>
-    <link rel="stylesheet" href="/juegos.com/css/style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -118,9 +118,55 @@
         </section>
     </div>
 
+    <!-- Script principal con variables globales -->
+    <script>
+        // Variables globales compartidas
+        let currentPage = 'home';
+        let timerInterval;
+        let isMemoryGameActive = false;
+    </script>
+    
+    <!-- Scripts de los juegos -->
+    <script src="memory.js"></script>
+    <script src="rps.js"></script>
+    
+    <!-- Script de navegación -->
+    <script>
+        // Mostrar página principal
+        function showHome() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('memory-game').style.display = 'none';
+            document.getElementById('rps-game').style.display = 'none';
+            currentPage = 'home';
+            
+            // Detener temporizador si está activo
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                isMemoryGameActive = false;
+            }
+        }
 
-    <script src="js/main.js"></script>
-    <script src="js/memory-game.js"></script>
-    <script src="js/rps-game.js"></script>
+        // Mostrar juego específico
+        function showGame(game) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('memory-game').style.display = 'none';
+            document.getElementById('rps-game').style.display = 'none';
+            
+            if (game === 'memory') {
+                document.getElementById('memory-game').style.display = 'block';
+                currentPage = 'memory';
+                initializeMemoryGame();
+            } else if (game === 'rps') {
+                document.getElementById('rps-game').style.display = 'block';
+                currentPage = 'rps';
+                initializeRPSGame();
+            }
+        }
+
+        // Inicializar la página al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            showHome();
+        });
+    </script>
 </body>
 </html>
